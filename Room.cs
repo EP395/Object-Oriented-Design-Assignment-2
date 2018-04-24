@@ -8,23 +8,43 @@ namespace FatesMotel
 {
     class Room
     {
-
-
         public int RoomID { get; set; }
-        public bool IsOnFire { get; set; }
+        public Boolean IsFlammable { get; set; }
         public int Temperature { get; set; }
 
-        public Room(int RoomNum)
+        public Room(int roomNum)
         {
-            RoomID = RoomNum;
-            IsOnFire = false;
-            Temperature = (int)State.SAFE;
+            RoomID = roomNum;
+            IsFlammable = true;
+            Temperature = (int)RoomState.SAFE;
         }
 
 
-        public void HeatUp(int t)
+        public void HeatUp()
         {
-            Temperature += t;
+            if(IsFlammable)
+            {
+                if(Temperature >= (int)RoomState.BURNEDOUT)
+                {
+                    // do nothing atm
+                }
+                else
+                {
+                    Temperature += Constants.TEMP_INCREASE;
+                }
+            }
+        }
+
+        public void CoolDown()
+        {
+            if(Temperature <= (int)RoomState.SAFE)
+            {
+                IsFlammable = false;
+            }
+            else
+            {
+                Temperature -= Constants.TEMP_DECREASE;
+            }
         }
     }
 }

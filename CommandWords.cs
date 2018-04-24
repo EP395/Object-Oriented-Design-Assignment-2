@@ -13,7 +13,7 @@ namespace FatesMotel
                                                     "roomId", "help" };
         public String[] ValidCommands { get { return validCommands; } }
 
-        public static Boolean isCommand(String command)
+        public static Boolean IsCommand(String command)
         {
             if (validCommands.Contains(command))
                 return true;

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-
+using System.Threading.Tasks;
 
 namespace FatesMotel
 {
@@ -12,15 +11,12 @@ namespace FatesMotel
     {
         static void Main(string[] args)
         {
-            HandlingInput hi = new HandlingInput();
             Game game = new Game();
-            TimerCallback timerCallBack = game.TickTock;
-            Timer timer = new Timer(timerCallBack, null, 1000, game.refreshRate);
-            Console.ReadLine();
+            TimerCallback timerCallback = game.TickTock;
+            Timer timer = new Timer(timerCallback, null, 1000, game.RefreshRate);
 
-            //game.playGame();
-
-            hi.Play();
+            HandlingInput hi = new HandlingInput();
+            hi.GetInput();
         }
     }
 }

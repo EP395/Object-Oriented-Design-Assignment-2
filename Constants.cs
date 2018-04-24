@@ -6,5 +6,10 @@ using System.Threading.Tasks;
 
 namespace FatesMotel
 {
-    public enum State { SAFE = 0, DANGER = 150, SMOULDER = 300, FIRE = 600, BURNEDOUT = 700 }
+    class Constants
+    {
+        public static readonly int MAX_ROOMS = 16;
+        public static readonly int TEMP_INCREASE = 20;
+        public static readonly int TEMP_DECREASE = 40;
+    }
 }
